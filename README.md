@@ -14,7 +14,7 @@ A Rust tool that automatically updates Cloudflare DNS A records when your public
 1. Clone this repository:
 
    ```
-   git clone https://github.com/yourusername/dyncf.git
+   git clone https://github.com/pablushka/dyncf.git
    cd dyncf
    ```
 
