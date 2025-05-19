@@ -26,6 +26,8 @@ jobs:
     name: Build for Raspberry Pi 4 (aarch64)
     runs-on: ubuntu-latest
     steps:
+      - name: Install OpenSSL
+        run: sudo apt-get update && sudo apt-get install -y libssl-dev
       - uses: actions/checkout@v4
       - name: Install cross
         run: cargo install cross --git https://github.com/cross-rs/cross
