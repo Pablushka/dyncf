@@ -25,6 +25,8 @@ jobs:
   build-rpi4:
     name: Build for Raspberry Pi 4 (aarch64)
     runs-on: ubuntu-latest
+    env:
+      OPENSSL_DIR: /usr/local/ssl
     steps:
       - uses: actions/checkout@v4
       - name: Install OpenSSL
