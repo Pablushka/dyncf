@@ -11,7 +11,7 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  OPENSSL_DIR: /usr/local/ssl
+  OPENSSL_DIR: /usr/bin/openssl
 
 jobs:
   build:
