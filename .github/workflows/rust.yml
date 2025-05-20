@@ -29,8 +29,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: taiki-e/install-action@v2
         with:
-          tool: cargo-hack,cargo-minimal-versions
-      - name: Install OpenSSL
+          tool: cross
+      - name: Installs OpenSSL...
         run: sudo apt-get update && sudo apt-get install -y libssl-dev openssl
       # - name: Install cross
       #   run: cargo install cross --git https://github.com/cross-rs/cross
