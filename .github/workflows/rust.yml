@@ -11,7 +11,6 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-  OPENSSL_DIR: /usr/bin/openssl
 
 jobs:
   build:
@@ -28,16 +27,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: taiki-e/install-action@v2
+        with:
+          tool: cargo-hack,cargo-minimal-versions
       - name: Install OpenSSL
-        run: sudo apt-get update && sudo apt-get install -y libssl-dev
-      - name: Install cross
-        run: cargo install cross --git https://github.com/cross-rs/cross
+        run: sudo apt-get update && sudo apt-get install -y libssl-dev openssl
+      # - name: Install cross
+      #   run: cargo install cross --git https://github.com/cross-rs/cross
       - name: Build (aarch64-unknown-linux-gnu)
         run: cross build --release --target aarch64-unknown-linux-gnu
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dyncf-pi4
+          name: dyncf-rpi4
           path: target/aarch64-unknown-linux-gnu/release/dyncf
 
   release:
@@ -50,7 +52,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: dyncf-pi4
+          name: dyncf-rpi4
           path: ./release-assets
       - name: Generate changelog
         uses: heinrichreimer/github-changelog-generator-action@v2.3
