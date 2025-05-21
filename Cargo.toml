@@ -2,7 +2,7 @@
 name = "dyncf"
 version = "0.1.0"
 edition = "2024"
-authors = ["Pablushka <pablushka@nomades..com.ar"]
+authors = ["Pablushka <pablushka@nomades.com.ar"]
 description = "Dynamic Cloudflare DNS updater"
 license = "MIT"
 
